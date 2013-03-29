@@ -1,4 +1,3 @@
-<h1>Invite some peeps</h1>
 <autocomplete 
   remote-data="options" 
   placeholder="Enter name or email address" 
@@ -6,7 +5,6 @@
   item-template="views/invitee.html"
 >
 </autocomplete>
-<div class="container">
-  <h3>Invited Peeps</h3>
+<div class="container-fluid">
   <div class="invited" ng-include src="'views/invitee.html'" ng-repeat="result in invited"></div>
 </div>

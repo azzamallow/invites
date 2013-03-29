@@ -13,8 +13,6 @@ angular.module('invitesApp')
     controller: 'AutocompleteCtrl'
     link: (scope, iElement) ->
       searchInput = angular.element(iElement.children()[0])
-      searchInput.bind 'blur', -> scope._reset()
-
       searchInput.bind 'keydown', (event) ->
           switch (event.keyCode)
             when 38 then scope.selectPrevious()
