@@ -1,1 +1,12 @@
+$baseBorderRadius:      0px !default;
+
 @import "compass_twitter_bootstrap";
+@import "compass_twitter_bootstrap_responsive";
+
+@import "autocomplete";
+
+@media (max-width: 767px) {
+  body {
+    padding: 0;
+  }
+}

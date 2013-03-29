@@ -24,9 +24,9 @@ angular.module('invitesApp')
 
     $scope.selectMe = (choice) ->
       $scope._reset()
-      $element.children()[0].focus()
       $scope.itemsChosen.push choice
       $scope.index = null
+      $element.children()[0].focus()
 
     $scope.hoverMe = (choice) ->
       $scope.index = $scope.results[choice]

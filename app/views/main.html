@@ -1,11 +1,16 @@
 <h1>Invite some peeps</h1>
-<autocomplete 
-  remote-data="options" 
-  placeholder="Start typing" 
-  items-chosen="invited"
-  item-template="views/invitee.html"
->
-</autocomplete>
-
-<br/>To be invited: <br/>
-<div ng-repeat="invitedPerson in invited">{{invitedPerson}}</div>
+<div class="row-fluid">
+  <div class="span12">
+    <autocomplete 
+      remote-data="options" 
+      placeholder="Enter name or email address" 
+      items-chosen="invited"
+      item-template="views/invitee.html"
+    >
+    </autocomplete>
+  </div>
+  <div class="span12">
+    <br/>To be invited: <br/>
+    <div ng-repeat="invitedPerson in invited">{{invitedPerson}}</div>
+  </div>
+</div>

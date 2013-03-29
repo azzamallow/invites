@@ -1,0 +1,45 @@
+.autocomplete {
+  position: relative;
+
+  .input-mobile {
+    font-size: 20px;
+    padding: 10px 0;
+    line-height: 34px; 
+    width: 100%;
+    margin-bottom: 0;
+  }
+
+  .autocomplete-drop-down {
+    background-color: white;
+    width: 100%;
+    position: absolute;
+    border-left: 1px solid black;
+    border-right: 1px solid black;
+
+    .autocomplete-drop-down-item {
+      padding: 10px;
+      border-bottom: 1px solid black;
+
+      &.active {
+        background-color: #eee;
+      }
+    }
+  }
+}
+
+@media (min-width: 768px) {
+  .autocomplete {
+    width: 500px;
+  }
+}
+
+@media (max-width: 768px) {
+  .autocomplete {
+    width: 100%;
+
+    .input-mobile {
+      border-left-width: 0;
+      border-right-width: 0;
+    }
+  }
+}
