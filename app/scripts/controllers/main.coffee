@@ -2,8 +2,5 @@
 
 angular.module('invitesApp')
   .controller 'MainCtrl', ($scope) ->
-    $scope.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ]
+    $scope.invited = [ 'Aaron' ]
+    $scope.options = [ 'Aaron', 'Luke', 'Carol', 'Spiro' ] 
