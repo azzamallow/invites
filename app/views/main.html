@@ -1,16 +1,12 @@
 <h1>Invite some peeps</h1>
-<div class="row-fluid">
-  <div class="span12">
-    <autocomplete 
-      remote-data="options" 
-      placeholder="Enter name or email address" 
-      items-chosen="invited"
-      item-template="views/invitee.html"
-    >
-    </autocomplete>
-  </div>
-  <div class="span12">
-    <br/>To be invited: <br/>
-    <div ng-repeat="invitedPerson in invited">{{invitedPerson}}</div>
-  </div>
+<autocomplete 
+  remote-data="options" 
+  placeholder="Enter name or email address" 
+  items-chosen="invited"
+  item-template="views/invitee.html"
+>
+</autocomplete>
+<div class="container">
+  <h3>Invited Peeps</h3>
+  <div class="invited" ng-include src="'views/invitee.html'" ng-repeat="result in invited"></div>
 </div>
