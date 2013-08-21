@@ -1,7 +1,16 @@
 'use strict'
 
 angular.module('invitesApp')
-  .controller 'AutocompleteCtrl', ($scope, $element) ->
+  .controller 'AutocompleteCtrl', ($scope) ->
+    index = null
+
+    reset = ->
+      $scope.selectedItem = null
+      $scope.searchTerm = ''
+      index = -1
+
+    reset()
+
     $scope.$watch 'searchTerm', (searchTerm) ->
       if !!searchTerm
         $scope.results = $scope.remoteData
@@ -9,29 +18,18 @@ angular.module('invitesApp')
         $scope.results = []
 
     $scope.selectNext = ->
-      $scope.$apply ->
-        if !$scope.index?
-          $scope.index = 0
-        else
-          $scope.index = Math.min $scope.results.length - 1, $scope.index + 1
-        $scope.selectedItem = $scope.results[$scope.index]
+      index = Math.min $scope.results.length - 1, index + 1
+      $scope.selectedItem = $scope.results[index]
 
     $scope.selectPrevious = ->
-      $scope.$apply ->
-        return if !$scope.index?
-        $scope.index = Math.max 0, $scope.index - 1
-        $scope.selectedItem = $scope.results[$scope.index]
+      return if index < 0
+      index = Math.max 0, index - 1
+      $scope.selectedItem = $scope.results[index]
 
     $scope.selectMe = (choice) ->
-      $scope._reset()
       $scope.itemsChosen.push choice
-      $scope.index = null
-      $element.children()[0].focus()
+      reset()
 
     $scope.hoverMe = (choice) ->
-      $scope.index = $scope.results[choice]
+      index = $scope.results[choice]
       $scope.selectedItem = choice
-
-    $scope._reset = ->
-      $scope.selectedItem = null
-      $scope.searchTerm = ''

@@ -14,8 +14,7 @@ angular.module('invitesApp')
     link: (scope, iElement) ->
       searchInput = angular.element(iElement.children()[0])
       searchInput.bind 'keydown', (event) ->
-          switch (event.keyCode)
-            when 38 then scope.selectPrevious()
-            when 40 then scope.selectNext()
-            when 13 then scope.$apply ->
-              scope.selectMe(scope.selectedItem)
+        switch event.keyCode
+          when 38 then scope.$apply -> scope.selectPrevious()
+          when 40 then scope.$apply -> scope.selectNext()
+          when 13 then scope.$apply -> scope.selectMe(scope.selectedItem) if scope.selectedItem?
